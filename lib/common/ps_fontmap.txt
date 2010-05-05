@@ -1,0 +1,6 @@
+#define TIMES "Times New Roman"
+#define COURIER "Courier"
+#define HELVETICA "Arial"
+#define HELVETICA "Arial"
+#define SYMBOL "Symbol"
+#define PALATINO "Palatino Linotype"
