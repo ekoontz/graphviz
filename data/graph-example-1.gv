@@ -1,0 +1,21 @@
+digraph Foo {
+	node [shape=circle,fixedsize=true,width=0.9]; 
+	marko;
+	vadas;
+	josh;
+	peter;
+
+	node [shape=box,fixedsize=true,width=1.0];
+	ripple;
+	lop;
+
+	marko->vadas [label=knows,taillabel="7"];
+	marko->josh [label=knows,taillabel="8"];
+	marko->lop [label=created,taillabel="9"];
+	josh->ripple [label=created,taillabel="10"];
+	josh->lop [label=created,taillabel="11"];
+	peter->lop[label=created,taillabel="12"];
+
+}
+
+

@@ -1,0 +1,87 @@
+
+
+div {
+}
+
+div#graph {
+    padding:1em;
+    width:83%;
+    height:800px;
+    position:absolute;
+    overflow:auto;
+    border:2px solid #002200;
+    background: #b1ff91;
+    z-axis:-1;
+}
+
+
+div.catchall {
+    background: lightblue;
+    padding:0.25em;
+    border: darkgrey;
+}
+
+div.nodepack {
+    z-axis:-1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #289976;
+    padding:0.2em;
+    position: absolute;
+    background:#67cc8e;
+}
+
+div.node {
+    background: #ffe877;
+    padding:0.2em;
+    margin:2px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #289976;
+    width:100%;
+}
+
+div.ball {
+    text-align:center;
+    float:left;
+    margin-left:40%;
+    width:auto;
+    background: #ffe877;
+    padding:0.2em;
+    border:1px solid #289976;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.desc {
+    font-size:10pt;
+    width:8em;
+}
+
+div.desc td { /* node description */
+    font-family:monospace;
+}
+
+div.desc table { 
+    width:98%;
+}
+
+div.desc td {
+    text-align:right;
+}
+
+g {
+    fill:#ffe877;
+    stroke:#67cc8e;
+}
+
+text {
+    stroke:#67cc8e;
+    fill:black;
+}
+
+path {
+    stroke-width:3;
+    stroke:black;
+    fill:#67cc8e;
+}
