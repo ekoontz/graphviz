@@ -65,11 +65,25 @@ static char *memgets(char *ubuf, int n, FILE * mbuf)
     return clp;
 }
 
+Agraph_t* graphml_parse(FILE * fp) {
+  // use libxml2 to (try) to parse contents
+  // of fp into a DOM.
+  return (Agraph_t*)NULL;
+}
+
 Agraph_t *agread(FILE * fp)
 {
+  /* check if this is a graphml (XML) file by trying to 
+     parse it with an XML DOM parser. */
+  Agraph_t* retval;
+  if ((retval = graphml_parse(fp)) != (Agraph_t*)NULL) {
+    return retval;
+  }
+  else {
     aglexinit(fp, (fgets));	/* use system fgets */
     agparse();
     return AG.parsed_g;
+  }
 }
 
 Agraph_t *agmemread(char *cp)
