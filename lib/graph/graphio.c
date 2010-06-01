@@ -66,9 +66,12 @@ static char *memgets(char *ubuf, int n, FILE * mbuf)
 }
 
 Agraph_t* graphml_parse(FILE * fp) {
-  // use libxml2 to (try) to parse contents
+  // 1. use libxml2 to (try) to parse contents
   // of fp into a DOM.
   return (Agraph_t*)NULL;
+  
+  // 2. if DOM parsing was successful, convert DOM into an Agraph_t*.
+
 }
 
 Agraph_t *agread(FILE * fp)
