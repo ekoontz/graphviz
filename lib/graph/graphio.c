@@ -90,6 +90,11 @@ FILE* graphml_parse(FILE * fp) {
   xmlSubstituteEntitiesDefault(1);
   xmlLoadExtDtdDefaultValue = 1;
 
+  xsltStylesheetPtr cur = NULL;
+  xmlDocPtr doc, res;
+
+  cur = xsltParseStylesheetFile("graphml2gv.xsl");
+
   /* otherwise, rewind fp to beginning of file and return it. */
 
   return retval;
