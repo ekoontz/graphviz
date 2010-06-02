@@ -77,12 +77,18 @@ static char *memgets(char *ubuf, int n, FILE * mbuf)
     return clp;
 }
 
+
 FILE* graphml_parse(FILE * fp) {
+  extern int xmlLoadExtDtdDefaultValue;
+
   FILE* retval = (FILE*) fp;
   /* read contents of fp. */
 
-  /* if it's xml, then transform using libxslt
+  /* try to transform to .gv using libxslt
      and pipe the resulting .gv-formatted string into a new fp. */
+
+  xmlSubstituteEntitiesDefault(1);
+  xmlLoadExtDtdDefaultValue = 1;
 
   /* otherwise, rewind fp to beginning of file and return it. */
 
