@@ -16,6 +16,18 @@
 
 
 #include "libgraph.h"
+#include <string.h>
+#include <libxml/xmlmemory.h>
+#include <libxml/debugXML.h>
+#include <libxml/HTMLtree.h>
+#include <libxml/xmlIO.h>
+#include <libxml/DOCBparser.h>
+#include <libxml/xinclude.h>
+#include <libxml/catalog.h>
+#include <libxslt/xslt.h>
+#include <libxslt/xsltInternals.h>
+#include <libxslt/transform.h>
+#include <libxslt/xsltutils.h>
 
 #ifdef DMALLOC
 #include "dmalloc.h"
@@ -65,28 +77,29 @@ static char *memgets(char *ubuf, int n, FILE * mbuf)
     return clp;
 }
 
-Agraph_t* graphml_parse(FILE * fp) {
-  // 1. use libxml2 to (try) to parse contents
-  // of fp into a DOM.
-  return (Agraph_t*)NULL;
-  
-  // 2. if DOM parsing was successful, convert DOM into an Agraph_t*.
+FILE* graphml_parse(FILE * fp) {
+  FILE* retval = (FILE*) fp;
+  /* read contents of fp. */
 
+  /* if it's xml, then transform using libxslt
+     and pipe the resulting .gv-formatted string into a new fp. */
+
+  /* otherwise, rewind fp to beginning of file and return it. */
+
+  return retval;
 }
 
 Agraph_t *agread(FILE * fp)
 {
   /* check if this is a graphml (XML) file by trying to 
-     parse it with an XML DOM parser. */
+     transform it via xslt into graphviz's native format. */
+
   Agraph_t* retval;
-  if ((retval = graphml_parse(fp)) != (Agraph_t*)NULL) {
-    return retval;
-  }
-  else {
-    aglexinit(fp, (fgets));	/* use system fgets */
-    agparse();
-    return AG.parsed_g;
-  }
+  fp = graphml_parse(fp);
+
+  aglexinit(fp, (fgets));	/* use system fgets */
+  agparse();
+  return AG.parsed_g;
 }
 
 Agraph_t *agmemread(char *cp)
